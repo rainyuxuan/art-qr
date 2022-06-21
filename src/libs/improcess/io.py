@@ -6,11 +6,13 @@ from matplotlib import pyplot as plt
 
 
 class ImageIO:
-    def __init__(self):
+    def __init__(self, need_convert=False):
         self.plot_images = []
+        self.need_convert = need_convert
 
     def add_image_to_plot(self, name, image_data):
-        self.plot_images.append((name, image_data))
+        self.plot_images.append(
+            (name, image_data if not self.need_convert else cv2.cvtColor(image_data, cv2.COLOR_BGR2RGB)))
 
     def plot(self):
         num_images = len(self.plot_images)
