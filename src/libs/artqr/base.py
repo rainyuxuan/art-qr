@@ -42,10 +42,15 @@ class QRCodeImage:
         return data, bbox, rectified
 
 
+class ArtQRCodeConfig:
+    pass
+
+
 class ArtQRCode:
-    def __init__(self, data, config=None):
+    def __init__(self, data: str, config: ArtQRCodeConfig):
         self.data = data
         self.config = config
 
     def make(self):
         pass
+

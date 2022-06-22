@@ -1,14 +1,12 @@
-# OCR @Devspot
+# Art-QR
 
-Customized QR Code for WechatPay/Paypal
+Art-QR is developed under the Devspot Project. It creates customized QR Code by putting pictures in QR Code.
 
-## Workflow
 
-1. Given QR Code image from Wx/Pp
-2. Extract QR Code data
-3. Generate clean QR Code
-4. Mask with customized image
+## Styles
 
-## References
+1. CuteR: Re-implementation of [chinuno-usami/CuteR](https://github.com/chinuno-usami/CuteR/).
+
+## Other References
 
 - https://learnopencv.com/opencv-qr-code-scanner-c-and-python/

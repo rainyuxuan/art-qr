@@ -10,9 +10,11 @@ class ImageIO:
         self.plot_images = []
         self.need_convert = need_convert
 
-    def add_image_to_plot(self, name, image_data):
+    def add_image_to_plot(self, name, image_data, need_convert=None):
+        if need_convert is None:
+            need_convert = self.need_convert
         self.plot_images.append(
-            (name, image_data if not self.need_convert else cv2.cvtColor(image_data, cv2.COLOR_BGR2RGB)))
+            (name, image_data if not need_convert else cv2.cvtColor(image_data, cv2.COLOR_BGR2RGB)))
 
     def plot(self):
         num_images = len(self.plot_images)
