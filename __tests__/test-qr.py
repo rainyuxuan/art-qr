@@ -36,6 +36,8 @@ def main(input_path='../assets/test_images/secrets/qr-wechat.jpg'):
     imio.add_image_to_plot('CuteR QR', cuter_qr_img, need_convert=True)
 
     imio.plot()
+    # imio.show('CuteR')
+    imio.save_images()
 
 
 if __name__ == '__main__':

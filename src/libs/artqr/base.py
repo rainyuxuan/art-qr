@@ -51,6 +51,9 @@ class ArtQRCode:
         self.data = data
         self.config = config
 
+    def set_config(self, config: ArtQRCodeConfig):
+        self.config = config
+
     def make(self):
         pass
 

@@ -13,19 +13,7 @@ import qrcode
 
 from .base import ArtQRCode, ArtQRCodeConfig
 
-SHOW = True
-
-DEFAULT_CONFIG = {
-    'version': 5,
-    'error_correction': qrcode.constants.ERROR_CORRECT_H,
-    'brightness': 1.0,
-    'contrast': 1.0,
-    'bg': (255, 255, 255, 1),
-    'pixelate': False,
-    'mask_crop_pos': (0, 0),
-    'resize': 1.0,
-    'box_factor': 2,
-}
+SHOW = False
 
 SQUARE_SIZE_LARGE = 7 + 1  # number of pixels of the length of a locator square with the white margin
 SQUARE_SIZE_SMALL = 5  # number of pixels of the length of a locator square with the white margin
@@ -52,15 +40,17 @@ def _get_locator_pixels(version, box_size):
 
 
 class CuteRCodeConfig(ArtQRCodeConfig):
-    version = 3
-    error_correction = qrcode.constants.ERROR_CORRECT_H
-    brightness = 1.0
-    contrast = 1.0
-    bg_rgb = (255, 255, 255)
-    mask_crop_pos = (0, 0)
-    resize = 1.0
-    box_factor = 2
-    transparency = 1.0
+    # QR Code
+    version: int
+    error_correction: int
+    bg_rgb: tuple[int, int, int]
+    transparency: float
+    box_factor: int
+    # Background image
+    brightness: float
+    contrast: float
+    mask_crop_pos: tuple[int, int]
+    resize: float
 
     def __init__(self,
                  version: int = 3,
@@ -160,7 +150,6 @@ class CuteRCode(ArtQRCode):
             # Pattern locators
             for [tl, br] in locator_positions:
                 if tl[0] <= x <= br[0] and tl[1] <= y <= br[1]:
-                    # print(f"{tl} < {(x, y)} < {br}")
                     return True
             return False
 
