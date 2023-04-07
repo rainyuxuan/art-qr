@@ -43,7 +43,9 @@ class QRCodeImage:
 
 
 class ArtQRCodeConfig:
-    pass
+    def set(self, **kwargs):
+        for kw, value in kwargs:
+            self.__setattr__(kw, value)
 
 
 class ArtQRCode:
@@ -53,6 +55,10 @@ class ArtQRCode:
 
     def set_config(self, config: ArtQRCodeConfig):
         self.config = config
+
+    def update_config(self, **kwargs):
+        for kw, value in kwargs:
+            self.config.__setattr__(kw, value)
 
     def make(self):
         pass

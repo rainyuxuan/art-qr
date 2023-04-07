@@ -96,10 +96,6 @@ class CuteRCode(ArtQRCode):
         super().__init__(data, config)
         self.bg_image = Image.open(bg_image_path)
 
-    def set_config(self, **args):
-        # TODO:
-        print(args)
-
     def _get_fill_and_back_color(self):
         return self.config.bg_rgb + (int(self.config.transparency * 255),), \
                (255, 255, 255) + (int(self.config.transparency * 255),)
